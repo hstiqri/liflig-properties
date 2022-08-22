@@ -18,8 +18,9 @@
 
   <distributionManagement>
     <repository>
-      <id>capra-releases</id>
-      <url>https://mvnrepo.capraconsulting.no/content/repositories/capra-releases</url>
+      <id>github</id>
+      <name>GitHub hstiqri Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/hstiqri/liflig-properties</url>
     </repository>
   </distributionManagement>
 
