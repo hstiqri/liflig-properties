@@ -16,6 +16,10 @@ jobs:
           java-version: '8'
           distribution: 'adopt'
       - name: Publish package
-        run: mvn --batch-mode deploy
+        run: |
+          major_version="$(sed -n "s/^.*<major-version>\([0-9]\{1,\}\)<\/major-version>.*$/\1/p" pom.xml)"
+          date="$(date -u "+%Y%m%d.%H%M%S")"
+          tag="$major_version.$date"
+          mvn --batch-mode deploy -Drevision="$tag" -Dtag="$tag"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
